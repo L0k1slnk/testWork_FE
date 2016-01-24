@@ -1,0 +1,116 @@
+@import "vendor/normalize";
+@import "assets/base";
+
+/***********************************
+*************** items **************
+***********************************/
+
+.item {
+    box-sizing: border-box;
+    float: left;
+    padding: $itemPadding;
+    background: #fff;
+    max-width: $itemMaxWidth;
+    min-width: $itemMinWidth;
+    min-height: $itemMaxWidth;
+    width: 30%;
+    text-align: center;
+
+    &_figure {
+        margin: 0;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
+
+    &_title {
+        font-weight: normal;
+        text-transform: uppercase;
+        font-size: 12px;
+        line-height: 20px;
+        color: $c_grey_dark;
+    }
+
+    &_paragraphe {
+        font-size: 11px;
+        line-height: 13px;
+        color: $c_grey;
+        text-align: left;
+        margin: 9px 0;
+    }
+
+    /**** responsive ******/
+
+    @media screen {
+        @media (min-width: 848px) {
+            &:not(:first-child) {
+                margin-left: 5%;
+            }
+        }
+        @media (min-width: 621px) and (max-width: 847px) {
+            width: 47%;
+            &:first-child {
+                margin-right: 6%;
+            }
+            &:last-child {
+                margin-top: 6%;
+                width: 100%;
+                min-width: 100%;
+                height: auto;
+                @include clearfix;
+            }
+        }
+        @media (max-width: 620px) {
+            width: 100%;
+            margin: 6% auto;
+            float: none;
+            @include clearfix;
+        }
+    }
+}
+
+.stars {
+    line-height: 0;
+    font-size: 0;
+    margin: 9px 0;
+
+    &_input {
+        position: absolute;
+        left: -9999px;
+    }
+
+    &_star {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background: url(/imgs/sprites/stars.png) 0 -10px no-repeat;
+        cursor: pointer;
+        margin: 0 1px;
+    }
+}
+
+@for $i from 1 through 6 {
+    .stars_input--#{$i} {
+        &:checked {
+            & ~ .stars_star {
+                background-position: 0 0;
+                &.stars_star--#{$i} {
+                    & ~ label {
+                        background-position: 0 -10px;
+                    }
+                }
+            }
+        }
+        &:hover {
+            & ~ .stars_star {
+                background-position: 0 0 !important;
+                &.stars_star--#{$i} {
+                    & ~ label {
+                        background-position: 0 -10px !important;
+                    }
+                }
+            }
+        }
+    }
+}

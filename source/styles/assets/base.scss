@@ -1,0 +1,60 @@
+/***********************************
+************* colors ***************
+***********************************/
+
+$c_grey: #999;
+$c_grey_light: #c5c5c5;
+$c_grey_dark: #333;
+
+/***********************************
+************** vars ****************
+***********************************/
+
+$itemMaxWidth: 300px;
+$itemMinWidth: 190px;
+$itemGutter: 50px;
+$itemPadding: 20px;
+
+$bodyPadding: 100px;
+
+/***********************************
+************* helpers **************
+***********************************/
+
+@mixin clearfix {
+
+    &:before,
+    &:after {
+        content: '';
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+/***********************************
+************* layouts **************
+***********************************/
+
+html {
+    height: 100%;
+    width: 100%;
+    display: table;
+    background: #000 url(/imgs/bg.jpg) no-repeat 50% 50% fixed;
+    background-size: cover;
+    font: normal 14px/1.5 Arial;
+    letter-spacing: .025em;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+    padding: $bodyPadding/2 $bodyPadding;
+}
+
+.site-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}

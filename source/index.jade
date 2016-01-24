@@ -1,0 +1,27 @@
+doctype html
+html
+    head
+        title Frontend. Test work
+        meta(charset="UTF-8")
+        link(href="/styles/style.css", rel="stylesheet")
+    body
+        .site-wrapper
+            each index in [1,2,3]
+                article.item
+                    .item_figure
+                        img(src="/imgs/" + index + ".jpg")
+                    .stars
+                        - var n = 1
+                        while n < 6
+                            input(type="radio", name="stars_" + index, class="stars_input stars_input--" + (n - 1), id="star_" + index + "_" + n++)
+
+                        - var n = 1
+                        while n < 6
+                            label(class="stars_star stars_star--" + (n - 1), for="star_" + index + "_" + n++)
+
+                        h1.item_title new zealand timelapse
+                        p.item_paragraphe Equipé de son appareil Canon 5D Mark II, le réalis ateur Bevan Percival nous offre une nouvelle vidéo en  technique timelapse absolument magnifique
+
+
+
+        script(src="/scripts/main.js")
