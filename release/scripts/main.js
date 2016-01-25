@@ -11036,7 +11036,6 @@ function scrollMode(turnOn) {
         $(window).on('scroll.loadMore', function () {
             var padding = 50;
             if ($(window).height() + $(window).scrollTop() > $('.items').height() + padding) {
-                console.log($(window).height() + $(window).scrollTop() > $('.items').height() + padding);
                 loadMore();
             }
         });
