@@ -10998,6 +10998,9 @@ $(document).on('change', '#scroll-mode', function () {
     scrollMode(state);
     if (state && $('.items').height() + padding < $(window).height()) {
         loadMore();
+        if ($('.items').height() + padding < $(window).height()) {
+            loadMore();
+        }
     }
 
 });
@@ -11018,6 +11021,7 @@ function loadMore() {
 
             var id = Date.now();
             $newItem.find('.stars_input').each(function (ii) {
+                $(this).prop('checked', false);
                 $(this).attr('id', 'star_' + i + '_' + ii + '_' + id).attr('name', 'stars_' + i + '_' + id);
             });
             $newItem.find('.stars_star').each(function (ii) {
