@@ -6,22 +6,25 @@ html
         link(href="/styles/style.css", rel="stylesheet")
     body
         .site-wrapper
-            each index in [1,2,3]
-                article.item
-                    .item_figure
-                        img(src="/imgs/" + index + ".jpg")
-                    .stars
-                        - var n = 1
-                        while n < 6
-                            input(type="radio", name="stars_" + index, class="stars_input stars_input--" + (n - 1), id="star_" + index + "_" + n++)
+            .infinite-scroll-mode
+                input(type="checkbox", class="infinite-scroll-mode_input", id="scroll-mode")
+                label(class="infinite-scroll-mode_label", for="scroll-mode")
+            .items
+                each index in [1,2,3]
+                    article.item
+                        figure.item_figure
+                            img(src="/imgs/" + index + ".jpg")
+                        .stars
+                            - var n = 1
+                            while n < 6
+                                input(type="radio", name="stars_" + index, class="stars_input stars_input--" + (n - 1), id="star_" + index + "_" + n++)
 
-                        - var n = 1
-                        while n < 6
-                            label(class="stars_star stars_star--" + (n - 1), for="star_" + index + "_" + n++)
+                            - var n = 1
+                            while n < 6
+                                label(class="stars_star stars_star--" + (n - 1), for="star_" + index + "_" + n++)
 
-                        h1.item_title new zealand timelapse
-                        p.item_paragraphe Equipé de son appareil Canon 5D Mark II, le réalis ateur Bevan Percival nous offre une nouvelle vidéo en  technique timelapse absolument magnifique
+                            h1.item_title new zealand timelapse
+                            p.item_paragraph Equipé de son appareil Canon 5D Mark II, le réalis ateur Bevan Percival nous offre une nouvelle vidéo en  technique timelapse absolument magnifique
 
-
-
+        button.load-more load more
         script(src="/scripts/main.js")
